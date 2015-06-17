@@ -32,4 +32,7 @@ public class BibliotecaApp {
         biblioteca.listBooks();
     }
 
+    public int getUserInput() {
+        return 1;
+    }
 }

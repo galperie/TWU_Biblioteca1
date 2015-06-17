@@ -6,6 +6,8 @@ import org.junit.Test;
 
 import java.io.PrintStream;
 
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.core.Is.is;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
@@ -49,6 +51,15 @@ public class BibliotecaAppTest {
         bibliotecaApp.start();
 
         verify(menu).printMenuOptions();
+    }
+
+    @Test
+    public void shouldReturnOneWhenAppStartsAndUserInputIsOne() {
+        bibliotecaApp.start();
+
+        int chosenInput = bibliotecaApp.getUserInput();
+
+        assertThat(chosenInput, is(1));
     }
 
 }
