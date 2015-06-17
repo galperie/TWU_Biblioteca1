@@ -44,4 +44,18 @@ public class LibraryTest {
 
         verify(printStream).println("Harry Potter");
     }
+
+    @Test
+    public void shouldListAllBooksNamesWhenThereAreMultipleBooks() {
+        books.add("Oh, The Places You'll Go!");
+        books.add("Cat In The Hat");
+        books.add("Green Eggs and Ham");
+
+        library.listBooks();
+
+        verify(printStream).println("Oh, The Places You'll Go!");
+        verify(printStream).println("Cat In The Hat");
+        verify(printStream).println("Green Eggs and Ham");
+
+    }
 }
