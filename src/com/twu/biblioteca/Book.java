@@ -15,10 +15,10 @@ public class Book {
     }
 
     public String getFormattedBookDetails() {
-        return String.format("%-15s %-15s %-30s %n", this.title, this.author, this.publishedYear);
+        return String.format("%-35s %-35s %-35s %n", this.title, this.author, this.publishedYear);
     }
 
     public String getColumnHeaders() {
-        return String.format("%-15s %-15s %-30s %n", "Title", "Author", "Year");
+        return String.format("%-35s %-35s %-35s %n", "Title", "Author", "Year");
     }
 }

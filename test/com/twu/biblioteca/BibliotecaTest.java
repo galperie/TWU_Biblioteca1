@@ -60,4 +60,14 @@ public class BibliotecaTest {
         verify(printStream).println("Book1 name & detail");
         verify(printStream).println("Book2 name & detail");
     }
+
+    @Test
+    public void shouldPrintFormattedColumnHeaders(){
+        String correctHeaders = String.format("%-35s %-35s %-35s %n", "Title", "Author", "Year");
+
+        biblioteca.printColumnHeaders();
+
+        verify(printStream).println(correctHeaders);
+    }
+
 }

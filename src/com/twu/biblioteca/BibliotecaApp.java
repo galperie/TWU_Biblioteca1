@@ -24,7 +24,8 @@ public class BibliotecaApp {
 
     public void start() {
         biblioteca.printWelcomeMessage();
-//        printBookList();
+        biblioteca.printColumnHeaders();
+        biblioteca.listBooks();
     }
 
 }
