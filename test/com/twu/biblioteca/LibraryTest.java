@@ -9,15 +9,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.mockito.Matchers.anyString;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.never;
-import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.*;
 
 public class LibraryTest {
 
 
     PrintStream printStream;
-    List<String> books;
+    List<Book> books;
     Library library;
 
     @Before
@@ -38,24 +36,28 @@ public class LibraryTest {
 
     @Test
     public void shouldListTheBookNameWhenThereIsOneBook(){
-        books.add("Harry Potter");
+        Book book = mock(Book.class);
+        when(book.printFormat()).thenReturn("Book name & detail");
+        books.add(book);
 
         library.listBooks();
 
-        verify(printStream).println("Harry Potter");
+        verify(printStream).println("Book name & detail");
     }
 
     @Test
     public void shouldListAllBooksNamesWhenThereAreMultipleBooks() {
-        books.add("Oh, The Places You'll Go!");
-        books.add("Cat In The Hat");
-        books.add("Green Eggs and Ham");
+        Book book = mock(Book.class);
+        when(book.printFormat()).thenReturn("Book1 name & detail");
+        books.add(book);
+        book = mock(Book.class);
+        when(book.printFormat()).thenReturn("Book2 name & detail");
+        books.add(book);
+
 
         library.listBooks();
 
-        verify(printStream).println("Oh, The Places You'll Go!");
-        verify(printStream).println("Cat In The Hat");
-        verify(printStream).println("Green Eggs and Ham");
-
+        verify(printStream).println("Book1 name & detail");
+        verify(printStream).println("Book2 name & detail");
     }
 }
