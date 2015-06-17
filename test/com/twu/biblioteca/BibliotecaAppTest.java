@@ -13,11 +13,13 @@ public class BibliotecaAppTest {
 
     private BibliotecaApp bibliotecaApp;
     private Biblioteca biblioteca;
+    private MainMenu menu;
 
     @Before
     public void setup() {
         biblioteca = mock(Biblioteca.class);
-        bibliotecaApp = new BibliotecaApp(biblioteca);
+        menu = mock(MainMenu.class);
+        bibliotecaApp = new BibliotecaApp(biblioteca, menu);
     }
 
 
@@ -28,18 +30,25 @@ public class BibliotecaAppTest {
         verify(biblioteca).printWelcomeMessage();
     }
 
+//    @Test
+//    public void shouldListBooksWhenAppStarts() {
+//        bibliotecaApp.start();
+//
+//        verify(biblioteca).listBooks();
+//    }
+//
+//    @Test
+//    public void shouldPrintColumnHeaders(){
+//        bibliotecaApp.start();
+//
+//        verify(biblioteca).printColumnHeaders();
+//    }
+
     @Test
-    public void shouldListBooksWhenAppStarts() {
+    public void shouldPrintMainMenuWhenAppStarts(){
         bibliotecaApp.start();
 
-        verify(biblioteca).listBooks();
-    }
-
-    @Test
-    public void shouldPrintColumnHeaders(){
-        bibliotecaApp.start();
-
-        verify(biblioteca).printColumnHeaders();
+        verify(menu).printMenuOptions();
     }
 
 }
