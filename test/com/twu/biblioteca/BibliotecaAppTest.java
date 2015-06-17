@@ -13,12 +13,14 @@ public class BibliotecaAppTest {
 
     @Test
     public void shouldPrintWelcomeWhenCalled() {
-        PrintStream printStream = mock(PrintStream.class);
-        BibliotecaApp bibliotecaApp = new BibliotecaApp(printStream);
+        Biblioteca biblioteca = mock(Biblioteca.class);
+        BibliotecaApp bibliotecaApp = new BibliotecaApp(biblioteca);
 
-        bibliotecaApp.printWelcomeMessage();
+        bibliotecaApp.start();
 
-        verify(printStream).println("Welcome to the Biblioteca!");
-
+        verify(biblioteca).printWelcomeMessage();
     }
+
+
+
 }

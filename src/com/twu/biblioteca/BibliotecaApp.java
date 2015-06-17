@@ -1,38 +1,30 @@
 package com.twu.biblioteca;
 
 import java.io.PrintStream;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
 public class BibliotecaApp {
 
-    private PrintStream printStream;
+    private Biblioteca biblioteca;
 
-    public BibliotecaApp(PrintStream printStream) {
-
-        this.printStream = printStream;
+    public BibliotecaApp(Biblioteca biblioteca) {
+        this.biblioteca = biblioteca;
     }
 
     public static void main(String[] args) {
-        start();
-    }
-
-    private static void start() {
-        BibliotecaApp bibliotecaApp = new BibliotecaApp(System.out);
-        bibliotecaApp.printWelcomeMessage();
-        printBookList();
-    }
-
-    private static void printBookList() {
-        List<Book> books = new ArrayList<Book>();
-        books.add(new Book("Cat in the Hat", "Dr. Seuss", 1957));
-        books.add(new Book("The Green Egg and Ham", "Dr. Seuss", 1960));
+        ArrayList<Book> books = new ArrayList<Book>();
+        books.add(new Book("Cat in the Hat", "Dr. Seuss", "1957"));
+        books.add(new Book("The Green Egg and Ham", "Dr. Seuss", "1960"));
         Biblioteca biblioteca = new Biblioteca(System.out, books);
-        biblioteca.listBooks();
+        BibliotecaApp bibliotecaApp = new BibliotecaApp(biblioteca);
+        bibliotecaApp.start();
     }
 
-
-    public void printWelcomeMessage() {
-        printStream.println("Welcome to the Biblioteca!");
+    public void start() {
+        biblioteca.printWelcomeMessage();
+//        printBookList();
     }
+
 }

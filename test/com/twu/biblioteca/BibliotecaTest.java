@@ -37,7 +37,7 @@ public class BibliotecaTest {
     @Test
     public void shouldListTheBookNameWhenThereIsOneBook(){
         Book book = mock(Book.class);
-        when(book.printFormat()).thenReturn("Book name & detail");
+        when(book.getFormattedBookDetails()).thenReturn("Book name & detail");
         books.add(book);
 
         biblioteca.listBooks();
@@ -48,10 +48,10 @@ public class BibliotecaTest {
     @Test
     public void shouldListAllBooksNamesWhenThereAreMultipleBooks() {
         Book book = mock(Book.class);
-        when(book.printFormat()).thenReturn("Book1 name & detail");
+        when(book.getFormattedBookDetails()).thenReturn("Book1 name & detail");
         books.add(book);
         book = mock(Book.class);
-        when(book.printFormat()).thenReturn("Book2 name & detail");
+        when(book.getFormattedBookDetails()).thenReturn("Book2 name & detail");
         books.add(book);
 
 

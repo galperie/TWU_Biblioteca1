@@ -19,9 +19,12 @@ public class Biblioteca {
 
     public void listBooks() {
         for(Book book : books){
-            printStream.println(book.printFormat());
+            printStream.println(book.getFormattedBookDetails());
         }
     }
 
 
+    public void printWelcomeMessage() {
+        printStream.println("Welcome to Biblioteca!");
+    }
 }
