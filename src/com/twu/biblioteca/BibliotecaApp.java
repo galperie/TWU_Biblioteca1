@@ -27,12 +27,12 @@ public class BibliotecaApp {
         List<Book> books = new ArrayList<Book>();
         books.add(new Book("Cat in the Hat", "Dr. Seuss", 1957));
         books.add(new Book("The Green Egg and Ham", "Dr. Seuss", 1960));
-        Library library = new Library(System.out, books);
-        library.listBooks();
+        Biblioteca biblioteca = new Biblioteca(System.out, books);
+        biblioteca.listBooks();
     }
 
 
     public void printWelcomeMessage() {
-        printStream.println("Welcome to the Library!");
+        printStream.println("Welcome to the Biblioteca!");
     }
 }

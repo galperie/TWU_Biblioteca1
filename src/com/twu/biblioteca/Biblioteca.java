@@ -6,13 +6,13 @@ import java.util.List;
 /**
  * Created by jmann on 6/16/15.
  */
-public class Library {
+public class Biblioteca {
     PrintStream printStream;
     List<Book> books;
 
 
 
-    public Library(PrintStream printStream, List<Book> books){
+    public Biblioteca(PrintStream printStream, List<Book> books){
         this.printStream = printStream;
         this.books = books;
     }

@@ -11,25 +11,25 @@ import java.util.List;
 import static org.mockito.Matchers.anyString;
 import static org.mockito.Mockito.*;
 
-public class LibraryTest {
+public class BibliotecaTest {
 
 
     PrintStream printStream;
     List<Book> books;
-    Library library;
+    Biblioteca biblioteca;
 
     @Before
     public void setup() {
 
         printStream = mock(PrintStream.class);
-        books = new ArrayList<>();
-        library = new Library(printStream, books);
+        books = new ArrayList<Book>();
+        biblioteca = new Biblioteca(printStream, books);
 
     }
 
     @Test
     public void shouldListNoBooksWhenThereIsNoBook(){
-        library.listBooks();
+        biblioteca.listBooks();
 
         verify(printStream, never()).println(anyString());
     }
@@ -40,7 +40,7 @@ public class LibraryTest {
         when(book.printFormat()).thenReturn("Book name & detail");
         books.add(book);
 
-        library.listBooks();
+        biblioteca.listBooks();
 
         verify(printStream).println("Book name & detail");
     }
@@ -55,7 +55,7 @@ public class LibraryTest {
         books.add(book);
 
 
-        library.listBooks();
+        biblioteca.listBooks();
 
         verify(printStream).println("Book1 name & detail");
         verify(printStream).println("Book2 name & detail");

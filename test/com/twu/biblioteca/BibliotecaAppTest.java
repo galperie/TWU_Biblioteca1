@@ -18,7 +18,7 @@ public class BibliotecaAppTest {
 
         bibliotecaApp.printWelcomeMessage();
 
-        verify(printStream).println("Welcome to the Library!");
+        verify(printStream).println("Welcome to the Biblioteca!");
 
     }
 }
